@@ -20,7 +20,7 @@ class ProdutoResource extends JsonResource
             'produto' => mb_strtoupper($this->nome),
             'categoria' => new CategoriaResource($this->categoria),
             'categoriaId' => $this->categoria->id,
-            'categoriaDesc' => $this->categoria->nome,
+            'categoriaDesc' => mb_strtoupper($this->categoria->nome),
         ];
     }
 }

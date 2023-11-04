@@ -11,7 +11,7 @@ class ClienteDB
         $query = Cliente::query();
 
         if (isset($parametros->cliente)){
-            $query->where('nome', 'like', '%' .$parametros->cliente . '%');
+            $query->where('id',$parametros->cliente);
         }
 
         $query->orderBy('nome');

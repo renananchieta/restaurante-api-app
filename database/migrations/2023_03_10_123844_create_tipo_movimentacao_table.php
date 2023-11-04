@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tipo_movimentacao', function (Blueprint $table) {
             $table->id();
-            $table->date('nome');
+            $table->string('descricao');
             $table->timestamps();
             $table->softDeletes();
         });

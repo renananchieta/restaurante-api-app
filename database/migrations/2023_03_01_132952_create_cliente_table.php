@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('telefone');
             $table->integer('identificacao')->unique();
-            $table->decimal('saldo', 8, 2);
+            $table->float('saldo');
             $table->timestamps();
             $table->softDeletes();
         });

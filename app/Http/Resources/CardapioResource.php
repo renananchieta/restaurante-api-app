@@ -22,7 +22,7 @@ class CardapioResource extends JsonResource
             'valorShow' => number_format($this->valor, 2, ',', '.'),
             'produtoId' => $this->produto->id,
             'produtoDesc' => mb_strtoupper($this->produto->nome),
-            'categoria' => $this->produto->categoria->nome,
+            'categoria' => mb_strtoupper($this->produto->categoria->nome),
         ];
     }
 }
