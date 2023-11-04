@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CardapioController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProdutosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,5 @@ Route::prefix('restaurante')->group(function () {
 
     Route::apiResource('produtos', ProdutosController::class);
     Route::apiResource('cardapio', CardapioController::class);
+    Route::apiResource('clientes', ClienteController::class);
 });

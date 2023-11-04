@@ -17,7 +17,6 @@ class CardapioController extends Controller
      */
     public function index(Request $request)
     {
-        // $cardapio = Cardapio::all();
         $parametros = (Object)$request->all();
         $cardapio = CardapioDB::getItemDoCardapio($parametros);
 
