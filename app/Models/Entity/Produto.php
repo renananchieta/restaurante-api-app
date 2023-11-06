@@ -12,7 +12,7 @@ class Produto extends Model
     use HasFactory;
     use SoftDeletes;
     protected $table = 'produto';
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'nome',
         'categoria_id'

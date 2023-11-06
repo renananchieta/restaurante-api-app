@@ -11,7 +11,7 @@ class Cliente extends Model
     use HasFactory;
     use SoftDeletes;
     protected $table = 'cliente';
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'nome',
         'telefone',

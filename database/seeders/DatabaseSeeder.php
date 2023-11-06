@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ProdutoSeeder::class,
             CardapioSeeder::class,
             ClienteSeeder::class,
+            MovimentacaoSeeder::class,
         ]);
     }
 }

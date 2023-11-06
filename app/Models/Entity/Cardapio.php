@@ -12,7 +12,7 @@ class Cardapio extends Model
     use HasFactory;
     use SoftDeletes;
     protected $table = 'cardapio';
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'produto_id',
         'descricao',

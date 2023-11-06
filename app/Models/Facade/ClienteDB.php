@@ -3,6 +3,7 @@
 namespace App\Models\Facade;
 
 use App\Models\Entity\Cliente;
+use Illuminate\Support\Facades\DB;
 
 class ClienteDB 
 {
@@ -17,5 +18,14 @@ class ClienteDB
         $query->orderBy('nome');
 
         return $query->get();
+    }
+
+    public static function consultaSaldo($p)
+    {
+        $clienteOrigem = DB::table("cliente as cl")
+                            ->where("cl.identificacao","=", $p->identificacaoOrigem)
+                            ->first(["id", "nome", "saldo"]);
+
+        return $clienteOrigem->saldo;
     }
 }

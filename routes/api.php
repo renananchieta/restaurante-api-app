@@ -21,4 +21,6 @@ Route::prefix('restaurante')->group(function () {
     Route::apiResource('produtos', ProdutosController::class);
     Route::apiResource('cardapio', CardapioController::class);
     Route::apiResource('clientes', ClienteController::class);
+    Route::get('cliente/{cliente}/extrato', [ClienteController::class, 'extrato']);
+    Route::post('cliente/transferir-credito', [ClienteController::class, 'transferirCredito']);
 });

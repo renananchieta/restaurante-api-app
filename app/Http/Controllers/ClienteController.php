@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ClienteRequest;
 use App\Http\Resources\ClienteResource;
 use App\Models\Entity\Cliente;
+use App\Models\Entity\Movimentacao;
 use App\Models\Facade\ClienteDB;
+use App\Models\Regras\MovimentacaoRegras;
+use App\Models\Regras\TransferenciaRegras;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -32,9 +35,11 @@ class ClienteController extends Controller
 
         try {
             $cliente = Cliente::create($data);
+            MovimentacaoRegras::saldoInicialCliente($cliente);
             
             return response(new ClienteResource($cliente), 201);
         } catch (Exception $e){
+            dd($e);
             return response('Erro ao cadastrar Cliente.', 500);
         }
     }
@@ -70,5 +75,30 @@ class ClienteController extends Controller
     public function destroy(string $cliente)
     {
         Cliente::find($cliente)->delete();
+    }
+
+    public function extrato(Cliente $cliente)
+    {
+        $extrato = MovimentacaoRegras::extrato($cliente);
+
+        return response($extrato, 200);
+    }
+
+    public function transferirCredito(Request $request) 
+    {
+        try{
+            $saldoClienteOrigem = ClienteDB::consultaSaldo($request);
+
+            if($saldoClienteOrigem < $request->valorTransferencia){
+                throw new Exception('Saldo insuficiente.');
+            } else {
+                TransferenciaRegras::transferirCredito($request);
+                MovimentacaoRegras::transferenciaEntreClientes($request);
+            }
+
+            return response('Tranferência realizada com sucesso!', 200);
+        } catch(Exception $e) {
+            return response('Erro ao realizar operacação.', 500);
+        }
     }
 }
