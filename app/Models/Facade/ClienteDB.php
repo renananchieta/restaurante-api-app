@@ -22,10 +22,7 @@ class ClienteDB
 
     public static function consultaSaldo($p)
     {
-        $clienteOrigem = DB::table("cliente as cl")
-                            ->where("cl.identificacao","=", $p->identificacaoOrigem)
-                            ->first(["id", "nome", "saldo"]);
-
-        return $clienteOrigem->saldo;
+        $clienteOrigem = Cliente::where('identificacao', $p->identificacaoOrigem)->get(['id', 'nome', 'saldo']);
+        return $clienteOrigem[0]->saldo;
     }
 }

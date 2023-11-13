@@ -87,15 +87,18 @@ class ClienteController extends Controller
     public function transferirCredito(Request $request) 
     {
         try{
+            $valorTransferencia = floatval($request->valorTransferencia);
             $saldoClienteOrigem = ClienteDB::consultaSaldo($request);
-
-            if($saldoClienteOrigem < $request->valorTransferencia){
-                throw new Exception('Saldo insuficiente.');
-            } else {
+            
+            if($saldoClienteOrigem < $valorTransferencia){
+                return response('Saldo insuficiente.');
+            }
+             else {
                 TransferenciaRegras::transferirCredito($request);
+            
                 MovimentacaoRegras::transferenciaEntreClientes($request);
             }
-
+            
             return response('Tranferência realizada com sucesso!', 200);
         } catch(Exception $e) {
             return response('Erro ao realizar operacação.', 500);

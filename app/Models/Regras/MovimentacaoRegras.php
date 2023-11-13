@@ -2,6 +2,7 @@
 
 namespace App\Models\Regras;
 
+use App\Models\Entity\Cliente;
 use App\Models\Entity\Movimentacao;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -26,30 +27,28 @@ class MovimentacaoRegras extends Model
 
     public static function transferenciaEntreClientes($p)
     {
-        $clienteOrigem = DB::table("cliente as cl")
-                            ->where("cl.identificacao", "=", $p->identificacaoOrigem)
-                            ->first();
+        $clienteOrigem = Cliente::where('identificacao', $p->identificacaoOrigem)->get(['id', 'nome', 'saldo']);
+        // return $clienteOrigem[0]->nome;
 
-        $clienteDestino = DB::table("cliente as cl")
-                            ->where("cl.identificacao", "=", $p->identificacaoDestino)
-                            ->first();
+        $clienteDestino = Cliente::where('identificacao', $p->identificacaoDestino)->get(['id', 'nome', 'saldo']);
+        // return $clienteDestino;
 
         $extrato = new Movimentacao();
-        $extrato->cliente_id = $clienteOrigem->id;
-        $extrato->valor = $p->valorDaTransferencia;
+        $extrato->cliente_id = $clienteOrigem[0]->id;
+        $extrato->valor = $p->valorTransferencia;
         $extrato->tipo_movimentacao_id = 2;
         $extrato->data = date('Y-m-d H:i:s');
-        $extrato->observacao = 'Transferência de crédito '.$clienteDestino->nome;
+        $extrato->observacao = 'Transferência de crédito para'.$clienteDestino[0]->nome;
         $extrato->save();
-
-        
         
         $extrato = new Movimentacao();
-        $extrato->cliente_id = $clienteDestino->id;
-        $extrato->valor = $p->valorDaTransferencia;
+        $extrato->cliente_id = $clienteDestino[0]->id;
+        $extrato->valor = $p->valorTransferencia;
         $extrato->tipo_movimentacao_id = 1;
         $extrato->data = date('Y-m-d H:i:s');
-        $extrato->observacao = 'Recebimento via transferência de crédito por '.$clienteOrigem->nome;
+        $extrato->observacao = 'Recebimento via transferência de crédito por '.$clienteOrigem[0]->nome;
         $extrato->save();
+
+        return ;
     }
 }
