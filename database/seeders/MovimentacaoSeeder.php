@@ -19,7 +19,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 1,
                 "valor" => 6500.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -27,7 +27,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 2,
                 "valor" => 1600.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -35,7 +35,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 3,
                 "valor" => 1400.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -43,7 +43,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 4,
                 "valor" => 1600.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -51,7 +51,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 5,
                 "valor" => 2100.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -59,7 +59,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 6,
                 "valor" => 6000.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -67,7 +67,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 7,
                 "valor" => 6000.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -75,7 +75,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 8,
                 "valor" => 1000.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -83,7 +83,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 9,
                 "valor" => 6000.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -91,7 +91,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 10,
                 "valor" => 6000.50,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
             [
@@ -99,7 +99,7 @@ class MovimentacaoSeeder extends Seeder
                 "cliente_id" => 11,
                 "valor" => 2000.00,
                 "tipo_movimentacao_id" => 1,
-                "data" => '2023-11-05',
+                "data" => date('Y-m-d H:i:s'),
                 "observacao" => 'Entrada de crédito no cadastro do cliente.'
             ],
         ];

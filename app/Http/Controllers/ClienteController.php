@@ -39,7 +39,6 @@ class ClienteController extends Controller
             
             return response(new ClienteResource($cliente), 201);
         } catch (Exception $e){
-            dd($e);
             return response('Erro ao cadastrar Cliente.', 500);
         }
     }
@@ -88,7 +87,7 @@ class ClienteController extends Controller
     {
         try{
             $valorTransferencia = floatval($request->valorTransferencia);
-            $saldoClienteOrigem = ClienteDB::consultaSaldo($request);
+            $saldoClienteOrigem = ClienteDB::consultaSaldo($request->identificacaoOrigem);
             
             if($saldoClienteOrigem < $valorTransferencia){
                 return response('Saldo insuficiente.');

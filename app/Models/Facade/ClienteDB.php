@@ -20,9 +20,9 @@ class ClienteDB
         return $query->get();
     }
 
-    public static function consultaSaldo($p)
+    public static function consultaSaldo($identificacaoOrigem)
     {
-        $clienteOrigem = Cliente::where('identificacao', $p->identificacaoOrigem)->get(['id', 'nome', 'saldo']);
-        return $clienteOrigem[0]->saldo;
+        $clienteOrigem = Cliente::where('identificacao', $identificacaoOrigem)->first(['id', 'nome', 'saldo']);
+        return $clienteOrigem->saldo;
     }
 }

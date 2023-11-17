@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('cliente_id')->constrained('cliente');
             $table->float('valor');
             $table->foreignId('tipo_movimentacao_id')->constrained('tipo_movimentacao');
-            $table->date('data');
+            $table->timestamp('data');
             $table->string('observacao');
             $table->timestamps();
             $table->softDeletes();

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CardapioController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProdutosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,4 +24,5 @@ Route::prefix('restaurante')->group(function () {
     Route::apiResource('clientes', ClienteController::class);
     Route::get('cliente/{cliente}/extrato', [ClienteController::class, 'extrato']);
     Route::post('cliente/transferir-credito', [ClienteController::class, 'transferirCredito']);
+    Route::apiResource('pedido', PedidoController::class);
 });
